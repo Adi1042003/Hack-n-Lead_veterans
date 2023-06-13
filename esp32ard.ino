@@ -141,6 +141,9 @@ void myTimer() {
     lcd.print("Weight: ");
     lcd.print(weight, 3);
     lcd.print(" kg");
+
+    // Send weight data to Blynk virtual pin V2 (connected to gauge widget)
+    Blynk.virtualWrite(V2, weight);
   }
 }
 
@@ -188,4 +191,3 @@ BLYNK_WRITE(V4) {
   lcd.print(thresholdWeight);
   lcd.print(" kg");
 }
-
